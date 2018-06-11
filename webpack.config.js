@@ -1,34 +1,32 @@
-/**
- * Created by benjamin on 09/06/2018.
- */
-const path = require('path')
-const webpack = require('webpack')
+var config = {
+  // 打包的入口文件
+  entry: './main.js',
 
-let config = {
-    entry: './src/main.tsx',
-    output: {
-        path: path.resolve(path.resolve(), 'dist'),
-        filename: 'main.js',
-        publicPath: '/dist'
-    },
-    resolve: {
-        extensions:['.js', '.ts', '.tsx']
-    },
-    module: {
-        rules:[
-        {
-            test:/\.tsx?/,
-            loader:'ts-loader',
-            exclude: [/node_modules/]
+  // 配置打包结果，path定义输出文件夹，filename定义打包结果文件的名称
+  output: {
+    path: './',
+    filename: 'index.js'
+  },
+
+  // 设置服务器端口号
+  devServer: {
+    inline: true,
+    port: 7777
+  },
+
+  // 配置模块的处理逻辑，用loaders定义加载器
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
         }
+      }
     ]
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-            }
-        })
-    ]
+  }
 }
-module.exports = config
+
+module.exports = config;
