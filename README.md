@@ -1,106 +1,52 @@
-# react.js hello world
----
-first, you should install node and npm.
+# React Hot Loader 3.0 Boilerplate for Visual Studio Code
 
-1. create directory  
-    `mkdir helloworld && cd helloworld`
+A react boilerplate project for Visual Studio Code based on [react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate) and [React Hot Loader 3.0](https://github.com/gaearon/react-hot-boilerplate/pull/61)
+***
+![](overview.gif)
 
-2. init npm  
-    `npm init`
+## Features
+* Intellisense (code completion) for external libraries via [Automatic Type Acquisition (ATA)](https://code.visualstudio.com/updates/v1_7) 
+* Debugging react ES2015 classes inside vscode via [vscode-chrome-debug](https://github.com/Microsoft/vscode-chrome-debug) extension
+* Easy access to install, build and debugging commands via vscode command palette and keyboard shortcuts
+* JSX code analysis (linting) with autofixing support via [vscode-eslint](https://github.com/Microsoft/vscode-eslint) extension
+* [React Hot Loading](https://www.youtube.com/watch?v=xsSnOQynTHs)
 
-3. install webpack and webpack-dev-server  
-    `npm install webpack webpack-dev-server --save`
+### Server and Client Side Debugging
 
-4. install react and react-dom  
-    `npm install react react-dom --save`
+[react-hot-boilerplate-vscode-fullstack](https://github.com/GGAlanSmithee/react-hot-boilerplate-vscode/tree/server-debugging) (by [GGAlanSmithee](https://github.com/GGAlanSmithee))
 
-5. install babel etc.  
-    `npm install babel-core babel-loader babel-preset-react babel-preset-es2015 --save`
+## Visual Studio Code
 
-6. add start scripts to package.json
-```javascript
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "webpack-dev-server --hot"
-    }
-```
+* [**Download**](https://code.visualstudio.com/)
+* [**Tips and Tricks**](https://github.com/Microsoft/vscode-tips-and-tricks)
+* [**Supercharge your JavaScript debugging workflow with Visual Studio Code (Build 2017)**](https://channel9.msdn.com/Events/Build/2017/T6071)
 
-7. touch webpack.config.js
-```javascript
-    var config = {
-      entry: './main.js',
+### Required Extensions
 
-      output: {
-        path: './',
-        filename: 'index.js'
-      },
+* [**vscode-chrome-debug**](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+* [**vscode-eslint**](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-      devServer: {
-        inline: true,
-        port: 7777
-      },
+### Recommended Extensions
 
-      module: {
-        loaders: [
-          {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-            query: {
-              presets: ['es2015', 'react']
-            }
-          }
-        ]
-      }
-    }
+* [ReactSnippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets)
+* [vscode-npm](https://marketplace.visualstudio.com/items?itemName=fknop.vscode-npm)
+* [npm-intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
 
-    module.exports = config;
-```
+## Installation
 
-8. touch index.html
-```html
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <title>react helloworld</title>
-      </head>
-      <body>
-        <div id="app"></div>
-        <script src="index.js" charset="utf-8"></script>
-      </body>
-    </html>
-```
+1.   `git clone https://github.com/skolmer/react-hot-boilerplate-vscode.git`
+2.   open react-hot-boilerplate-vscode in Visual Studio Code
+3.   make sure you have [vscode-chrome-debug](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) and [vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension installed
+4.   press <kbd>F1</kbd> > `Run Task` > `install` (or `npm install`) to install all dependencies
 
-9. touch App.jsx
-```javascript
-    import React from 'react';
 
-    class App extends React.Component {
-      render() {
-        return (
-          <div>simon, helloworld!!!</div>
-        );
-      }
-    }
+## Visual Studio Code shortcuts
 
-    export default App;
-```
+*   <kbd>F5</kbd> to start debugging
+*   <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>B</kbd> to build a production release
+*   <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>T</kbd> to run eslint
 
-10. touch main.js
-```javascript
-    import React from 'react';
-    import ReactDOM from 'react-dom';
 
-    import App from './App.jsx';
+## License
 
-    ReactDOM.render(<App />, document.getElementById('app'));
-```
-
-11. start server  
-    `npm start`
-
-12. open browser: [http://localhost:7777](http://localhost:7777)
-
----
-if you clone this repository to local, just `npm install` and `npm start`.
+CC0 (public domain)
